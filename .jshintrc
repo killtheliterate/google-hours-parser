@@ -1,0 +1,12 @@
+{
+  "curly": true,
+  "eqeqeq": false,
+  "maxerr": 50,
+  "newcap": true,
+  "node": true,
+  "quotmark": "single",
+  "sub": true,
+  "globals": {
+    "describe": true
+  }
+}

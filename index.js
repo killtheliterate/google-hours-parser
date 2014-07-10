@@ -13,46 +13,53 @@ var parseHoursString = function(hoursStr) {
 };
 
 var isPm = function(str) {
-  return str === 'PM' ? true : false;
+    return str === 'PM' ? true : false;
 };
 
 var convertTo24Hour = function(amPm, piece) {
-  if (isPm(amPm)) {
-    return parseInt(piece, 10) + 12;
-  } else {
-    return piece;
-  }
+    if (isPm(amPm)) {
+        return parseInt(piece, 10) + 12;
+    } else {
+        return piece;
+    }
 };
 
 var makeHoursObjs = function(hoursArr) {
-  var exp = new RegExp('(AM|PM)', 'ig');
+      var exp = new RegExp('(AM|PM)', 'ig');
 
-  return _.map(hoursArr, function(el) {
-      var bitsOfHours = el.split(':'),
-          openClose = {
-              open: '',
-              close: ''
-          };
+    return _.map(hoursArr, function(el) {
+        var bitsOfHours = el.split(':'),
+            matches = el.match(exp),
+            openClose = {
+                open: '',
+                close: ''
+            };
 
-      // Do some stuff
-      if (el.match(exp).length === 0) {
-          openClose.open = bitsOfHours[0];
-          openClose.close = bitsOfHours[1];
+        if (matches === null) {
+            openClose.open = bitsOfHours[0];
+            openClose.close = bitsOfHours[2];
 
-          return openClose;
-      } else {
-          openClose.open = convertTo24Hour(bitsOfHours[1], bitsOfHours[0]);
-          openClose.close = convertTo24Hour(bitsOfHours[2], bitsOfHours[3]);
+            return openClose;
+        } else {
+            openClose.open = convertTo24Hour(bitsOfHours[2], bitsOfHours[0]);
+            openClose.close = convertTo24Hour(bitsOfHours[5], bitsOfHours[3]);
 
-          return openClose;
-      }
-  });
+            return openClose;
+        }
+    });
 };
 
 var zipDaysHours = function(hours) {
-  var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
-  return _.object(days, hours);
+    return _.object(days, hours);
 };
 
-module.exports = _.compose(zipDaysHours, makeHoursObjs, parseHoursString);
+module.exports =  {
+    parse: _.compose(zipDaysHours, makeHoursObjs, parseHoursString),
+    parseHoursString: parseHoursString,
+    isPm: isPm,
+    convertTo24Hour: convertTo24Hour,
+    makeHoursObjs: makeHoursObjs,
+    zipDaysHours: zipDaysHours
+};
