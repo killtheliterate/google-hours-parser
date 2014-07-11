@@ -55,11 +55,15 @@ var zipDaysHours = function(hours) {
     return _.object(days, hours);
 };
 
-module.exports =  {
-    parse: _.compose(zipDaysHours, makeHoursObjs, parseHoursString),
+var test = {
     parseHoursString: parseHoursString,
     isPm: isPm,
     convertTo24Hour: convertTo24Hour,
     makeHoursObjs: makeHoursObjs,
     zipDaysHours: zipDaysHours
+};
+
+module.exports =  {
+    parse: _.compose(zipDaysHours, makeHoursObjs, parseHoursString),
+    test: test
 };

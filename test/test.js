@@ -8,8 +8,8 @@ describe('gHoursParser', function() {
     describe('#parseHoursString()', function() {
 
         it('should return an array with a length > 0', function() {
-            parser.parseHoursString(fixture.twentyFour).length.should.equal(7);
-            parser.parseHoursString(fixture.amPm).length.should.equal(7);
+            parser.test.parseHoursString(fixture.twentyFour).length.should.equal(7);
+            parser.test.parseHoursString(fixture.amPm).length.should.equal(7);
         });
 
     });
@@ -17,11 +17,11 @@ describe('gHoursParser', function() {
     describe('#isPm()', function() {
 
         it('should return true when PM is passed', function() {
-            parser.isPm(fixture.isPm).should.equal(true);
+            parser.test.isPm(fixture.isPm).should.equal(true);
         });
 
         it('should return false when AM is passed', function() {
-            parser.isPm('AM').should.equal(false);
+            parser.test.isPm('AM').should.equal(false);
         });
 
     });
@@ -29,11 +29,11 @@ describe('gHoursParser', function() {
     describe('#convertTo24Hour()', function() {
 
         it('should return an int', function() {
-            parser.convertTo24Hour('AM', 10).should.equal(10);
+            parser.test.convertTo24Hour('AM', 10).should.equal(10);
         });
 
         it('should add 12 when PM', function() {
-            parser.convertTo24Hour('PM', 0).should.equal(12);
+            parser.test.convertTo24Hour('PM', 0).should.equal(12);
         });
 
     });
@@ -41,8 +41,8 @@ describe('gHoursParser', function() {
     describe('#makeHoursObjs()', function() {
 
         it('should return an array of objects', function() {
-            var withAmPm = parser.makeHoursObjs(fixture.makeHoursObjs1),
-                withoutAmPm = parser.makeHoursObjs(fixture.makeHoursObjs1);
+            var withAmPm = parser.test.makeHoursObjs(fixture.makeHoursObjs1),
+                withoutAmPm = parser.test.makeHoursObjs(fixture.makeHoursObjs1);
 
             _.isArray(withAmPm).should.equal(true);
             _.isArray(withoutAmPm).should.equal(true);
