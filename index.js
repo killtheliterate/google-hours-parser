@@ -53,10 +53,10 @@ var zipDaysHours = function(hours) {
 };
 
 var test = {
-    parseHoursString: parseHoursString,
-    isPm: isPm,
     convertTo24Hour: convertTo24Hour,
+    isPm: isPm,
     makeHoursObjs: makeHoursObjs,
+    parseHoursString: parseHoursString,
     zipDaysHours: zipDaysHours
 };
 
