@@ -40,7 +40,7 @@ after:
     close: 18
   },
   saturday: {
-    open: 24,
+    open: 12,
     close: 20
   }
 }
