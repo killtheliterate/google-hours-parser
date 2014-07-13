@@ -1,17 +1,6 @@
 // Require lodash
 var _ = require('lodash');
 
-var parseHoursString = function(hoursStr) {
-    var hours = hoursStr.split(',');
-
-    return _.map(hours ,function(hourStr) {
-        var dayHours = hourStr.split(':');
-        dayHours.shift(); // Shift the day of week int off the array
-
-        return dayHours.join(':');
-    });
-};
-
 var isPm = function(str) {
     return str === 'PM' ? true : false;
 };
@@ -24,8 +13,16 @@ var convertTo24Hour = function(amPm, piece) {
     }
 };
 
+var parseHoursString = function(hoursStr) {
+    return _.map(hoursStr.split(',') ,function(hourStr) {
+        var dayHours = _.rest(hourStr.split(':'));
+
+        return dayHours.join(':');
+    });
+};
+
 var makeHoursObjs = function(hoursArr) {
-      var exp = new RegExp('(AM|PM)', 'ig');
+    var exp = new RegExp('(AM|PM)', 'ig');
 
     return _.map(hoursArr, function(el) {
         var bitsOfHours = el.split(':'),
