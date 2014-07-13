@@ -16,32 +16,32 @@ after:
 ```
 {
   sunday: {
-    open: '10',
-    close: 18
+    open: '10:00',
+    close: '18:00'
   },
   monday: {
-    open: '10',
-    close: 18
+    open: '10:00',
+    close: '18:00'
   },
   tuesday: {
-    open: '10',
-    close: 18
+    open: '10:00',
+    close: '18:00'
   },
   wednesday: {
-    open: '10',
-    close: 18
+    open: '10:00',
+    close: '18:00'
   },
   thursday: {
-    open: '10',
-    close: 18
+    open: '10:00',
+    close: '18:00'
   },
   friday: {
-    open: '10',
-    close: 18
+    open: '10:00',
+    close: '18:00'
   },
   saturday: {
-    open: 12,
-    close: 20
+    open: '12:00',
+    close: '20:00'
   }
 }
 ```
