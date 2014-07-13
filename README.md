@@ -1,7 +1,7 @@
 gHoursParser
 ============
 
-Parse Google Places hours strings into POJO. Expects string to be formatted in the way 
+Parse Google Places hours strings into POJOs (plain 'ol JS objects). Expects string to be formatted in the way 
 described [here](https://support.google.com/places/answer/1722104?hl=en#hours).
 
 * 24 hour format: dayOfWeek:hh:mm:hh:mm
