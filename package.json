@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": false,
   "dependencies": {
-    "lodash": "^2.4.1"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "chai": "^1.9.1",
-    "mocha": "^1.20.1"
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
   },
   "description": "Parse Google Places hours strings into POJOs",
   "main": "index.js",
